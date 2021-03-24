@@ -1,24 +1,35 @@
-# README
+# Spinny
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
 
-Things you may want to cover:
+To get started with the app, first clone the repo and `cd` into the directory:
 
-* Ruby version
+```bash
+$git clone git@github.com:alexiscrack3/spinny.git
+$cd spinny
+```
 
-* System dependencies
+Then install the needed packages (while skipping any Ruby gems needed only in production):
 
-* Configuration
+```bash
+$bundle install --without production
+```
 
-* Database creation
+Next, migrate the database:
 
-* Database initialization
+```bash
+$rails db:migrate
+```
 
-* How to run the test suite
+Finally, run the test suite to verify that everything is working correctly:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+$rails test
+```
 
-* Deployment instructions
+If the test suite passes, you’ll be ready to seed the database with sample users and run the app in a local server:
 
-* ...
+```bash
+$rails db:seed
+$rails server
+```
