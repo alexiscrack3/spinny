@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_054856) do
+ActiveRecord::Schema.define(version: 2021_03_27_154435) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.integer "club_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_memberships_on_club_id"
+    t.index ["player_id"], name: "index_memberships_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -27,4 +36,6 @@ ActiveRecord::Schema.define(version: 2021_03_27_054856) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "memberships", "clubs"
+  add_foreign_key "memberships", "players"
 end
