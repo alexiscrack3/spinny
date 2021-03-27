@@ -8,5 +8,5 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 (1..10).each do |index|
-  club = Club.create(name: Faker::FunnyName.name)
+  club = Club.create(name: Faker::FunnyName.name, description: Faker::Lorem.sentence(word_count: 1 + rand(8)))
 end
