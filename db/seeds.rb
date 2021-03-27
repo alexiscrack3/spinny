@@ -7,7 +7,7 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-(1..10).each do |index|
+(1..30).each do |index|
   player = Player.new(
     first_name: Faker::Name.unique.first_name,
     last_name: Faker::Name.unique.last_name,
@@ -17,8 +17,12 @@ require 'faker'
 end
 
 (1..10).each do |index|
+  limit = 1 + rand(5)
+  players = Player.all.sample rand(5)
+
   club = Club.create(
-    name: Faker::FunnyName.name,
-    description: Faker::Lorem.sentence(word_count: 1 + rand(8))
+    name: Faker::FunnyName.unique.name,
+    description: Faker::Lorem.sentence(word_count: 1 + rand(8)),
+    players: players
   )
 end
