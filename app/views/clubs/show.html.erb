@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @club.name %>
+    <strong>Name:</strong>
+    <%= @club.name %>
 </p>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
+<p>
+    <strong>Description:</strong>
+    <%= @club.description %>
+</p>
+
 <%= link_to 'Back', clubs_path %>
