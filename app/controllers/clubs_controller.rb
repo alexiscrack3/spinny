@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: %i[ show edit update destroy ]
+  before_action :set_club, only: %i[ edit update destroy ]
 
   # GET /clubs or /clubs.json
   def index
@@ -8,6 +8,8 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1 or /clubs/1.json
   def show
+    @club = Club.find(params[:id])
+    @players = @club.players
   end
 
   # GET /clubs/new
